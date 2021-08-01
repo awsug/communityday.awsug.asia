@@ -1,3 +1,3 @@
-# AWS Community Day, India 2020
+# AWS Community Day, South Asia 2021
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/cfe25d5b-15cf-4c03-b3ea-e546f5475363/deploy-status)](https://app.netlify.com/sites/inspiring-hypatia-8c790a/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9078c9bb-2001-42e0-a420-1a1778cf1ca1/deploy-status)](https://app.netlify.com/sites/aws-community-day-south-asia-2021/deploys)
