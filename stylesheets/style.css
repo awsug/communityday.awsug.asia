@@ -2476,6 +2476,36 @@ ul.circle li {
   background-size: 125%;
 }
 
+#page .section-6 .volunteers .vl-i .person[data-fname="Manoj"] .img {
+  background-image: url(../images/vols/Manoj.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Rumesh"] .img {
+  background-image: url(../images/vols/Rumesh.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Srushith"] .img {
+  background-image: url(../images/vols/Srushith.jpeg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Keshav"] .img {
+  background-image: url(../images/vols/Keshav.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Bikas"] .img {
+  background-image: url(../images/vols/Bikas.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Farzana"] .img {
+  background-image: url(../images/vols/Farzana.jpeg);
+  background-size: 125%;
+}
+
 #page .section-9 .ambassadors .vl-i .person[data-fname="Kumar"] .img {
   background-image: url(../images/ambs/kumar_harsh.jpg);
   background-size: cover;
