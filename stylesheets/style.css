@@ -2506,11 +2506,65 @@ ul.circle li {
   background-size: 125%;
 }
 
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Toshal"] .img {
+  background-image: url(../images/vols/Toshal.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Abhishek"] .img {
+  background-image: url(../images/vols/Abhishek_wagh.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Tajinder"] .img {
+  background-image: url(../images/vols/Tajinder.jpg);
+  background-size: 125%;
+}
+
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Rajat"] .img {
+  background-image: url(../images/vols/Rajat_Arora.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Saurav"] .img {
+  background-image: url(../images/vols/Saurav_raghuvanshi.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Ritesh"] .img {
+  background-image: url(../images/vols/Ritesh.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Nidhi"] .img {
+  background-image: url(../images/vols/Nidhi.jpg);
+  background-size: 125%;
+}
+#page .section-6 .volunteers .vl-i .person[data-fname="Atul"] .img {
+  background-image: url(../images/vols/Atul_Kumbhar.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Prithviraj"] .img {
+  background-image: url(../images/vols/Prithviraj.jpg);
+  background-size: 125%;
+}
+#page .section-6 .volunteers .vl-i .person[data-fname="Parth"] .img {
+  background-image: url(../images/vols/Parth_purvesh.jpg);
+  background-size: 125%;
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Sreekar"] .img {
+  background-image: url(../images/vols/Sreekar.jpeg);
+  background-size: 125%;
+}
+
 /* #page .section-9 .ambassadors .vl-i .person[data-fname="Kumar"] .img {
   background-image: url(../images/ambs/kumar_harsh.jpg);
   background-size: cover;
 } */
-
 
 
 /* line 1056, ../sass/shared/_home.scss */
