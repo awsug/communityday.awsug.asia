@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/site.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="stylesheets/intlTelInput.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/mystyles.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171268306-1"></script>
+    <script>
+</head>
+<body>
+
+<!-------register modal ------------->
+<div id="register" class="modal fade register-form" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title heading-ttl">Register</h4>
+        </div> -->
+        <div class="modal-body">
+          <div class="form-title">
+            <h3>Register for the Event</h3>
+            <button type="button" class="register-form-close-btn" data-dismiss="modal">&times;</button>
+          </div>
+
+          <form id="register-form" class="register-form-inner" method="POST">
+            <div class="group">
+              <input type="text" name="name" id="name" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label><i class="input-ikon fa fa-user-o"></i><span class="span-input">Name <span
+                    class="text-danger">*</span></span></label>
+            </div>
+
+            <div class="group">
+              <input type="email" name="email" id="email" required onfocusout="checkEmail();">
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label><i class="input-sifre-ikon fa fa-envelope-o"></i><span class="span-input" >Email <span
+                    class="text-danger">*</span></span></label>
+              <span style="color: red" id="emailStatus"></span>
+            </div>
+            <div class="group">
+              <input type="text" name="designation" id="designation" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label><i class="input-sifre-ikon fa fa-graduation-cap"></i><span class="span-input">Designation <span
+                    class="text-danger">*</span></span></label>
+            </div>
+            <div class="group">
+              <input type="text" name="organisation" id="organisation" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label><i class="input-sifre-ikon fa fa-building-o"></i><span class="span-input">Organisation <span
+                    class="text-danger">*</span></span></label>
+            </div>
+            <div class="group w-100">
+              <input id="phone_number" name="phone" class="w-100" type="text" placeholder="xxxxxxxxxx" maxlength="13"
+                required>
+              <!-- <input type="text" name="phone" id="phone_number" maxlength="13" required> -->
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <span class="error text-danger">
+                Please enter valid mobile number
+              </span>
+              <!-- <label>
+                  <i class="input-sifre-ikon fa fa-phone"></i>
+                  <span class="span-input">Phone Number <span class="text-danger">*</span></span>
+                </label> -->
+            </div>
+
+
+            <div class="group">
+              <input type="text" name="city" id="city" required>
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label>
+                <i class="input-sifre-ikon fa fa-map-marker"></i>
+                <span class="span-input">City <span class="text-danger">*</span></span>
+              </label>
+            </div>
+            <div class="consent-row check-cloud">
+                <span class="switch">
+                  <input type="checkbox" name="trainingCloud" class="switch" id="training-check" checked value="true">
+                  <label for="training-check">I am interested in AWS Training Offer from Trainocate Cloud Academy.</label>
+                </span>
+              </div>
+          
+            <div class="consent-row">
+              <span class="switch">
+                <input type="checkbox" name="consent" class="switch" id="idChk-normal" checked value="true">
+                <label for="idChk-normal">Yes, I'd like KonfHub Technologies to provide my contact information to
+                  Amazon Web Services (AWS) so AWS can share the latest AWS news and offers with me by email, post or
+                  telephone.</label>
+              </span>
+            </div>
+            <span class="accept-terms text-danger">
+              Please check the terms and condition switch control
+            </span>
+            <div class="form-group margin-25_">
+              <input type="submit" class="btn btn-warning btn-register" id="register-btn" value="Register" id="registerSubmit">
+            </div>
+            <div class="powered-logo">
+              <a href="https://konfhub.com/privacypolicy.html" target="_blank"> <img src="images/powered-logo.png"
+                  class="img-responsive"></a>
+            </div>
+            <div class="form-group register-privacy-section">
+              <a href="https://konfhub.com/privacypolicy.html" target="_blank">KonfHub Technologies</a>
+              <a href="https://aws.amazon.com/legal/marketingentities/" target="_blank">Amazon Web Services</a>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+
+
+</body>
+</html>
