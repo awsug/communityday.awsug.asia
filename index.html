@@ -102,7 +102,7 @@
                     from industry leaders.
                   </p>
                   <div class="btn-register-section">
-                    <!-- <button class="btn btn-outline" data-toggle="modal" data-target="#register"> Register</button> -->
+                    <button class="btn btn-outline" data-toggle="modal" data-target="#register"> Register</button>
                      
                   </div>
                 </div>
@@ -2213,6 +2213,11 @@
               <label><i class="input-sifre-ikon fa fa-building-o"></i><span class="span-input">Organisation <span
                     class="text-danger">*</span></span></label>
             </div>
+
+            <!-- <div class="country-select">
+              <label><i class="fa fa-globe" aria-hidden="true"></i><span class="span-input">Country</span></label><select id="address-country"></select>
+            </div> -->
+
             <div class="group w-100">
               <input id="phone_number" name="phone" class="w-100" type="text" placeholder="xxxxxxxxxx" maxlength="13"
                 required>
@@ -2221,14 +2226,13 @@
               <span class="bar"></span>
               <span class="error text-danger">
                 Please enter valid mobile number
-              </span>
+              </span>              
               <!-- <label>
                   <i class="input-sifre-ikon fa fa-phone"></i>
                   <span class="span-input">Phone Number <span class="text-danger">*</span></span>
                 </label> -->
             </div>
-
-
+            
             <div class="group">
               <input type="text" name="city" id="city" required>
               <span class="highlight"></span>
@@ -2238,19 +2242,18 @@
                 <span class="span-input">City <span class="text-danger">*</span></span>
               </label>
             </div>
-            <div class="consent-row check-cloud">
+            <!-- <div class="consent-row check-cloud">
                 <span class="switch">
                   <input type="checkbox" name="trainingCloud" class="switch" id="training-check" checked value="true">
                   <label for="training-check">I am interested in AWS Training Offer from Trainocate Cloud Academy.</label>
                 </span>
-              </div>
+              </div> -->
           
             <div class="consent-row">
               <span class="switch">
                 <input type="checkbox" name="consent" class="switch" id="idChk-normal" checked value="true">
-                <label for="idChk-normal">Yes, I'd like KonfHub Technologies to provide my contact information to
-                  Amazon Web Services (AWS) so AWS can share the latest AWS news and offers with me by email, post or
-                  telephone.</label>
+                <label for="idChk-normal">Yes, I'd like Konfhub to provide my contact information to Amazon Web Services (AWS) so AWS can share the latest AWS news and offers with me by email, post or telephone.
+                  You may unsubscribe from receiving news and offers from the sender at any time by following the instructions in the communications received. AWS handles your information as described in the AWS Privacy Notice.</label>
               </span>
             </div>
             <span class="accept-terms text-danger">
@@ -2264,8 +2267,9 @@
                   class="img-responsive"></a>
             </div>
             <div class="form-group register-privacy-section">
-              <a href="https://konfhub.com/privacypolicy.html" target="_blank">KonfHub Technologies</a>
               <a href="https://aws.amazon.com/legal/marketingentities/" target="_blank">Amazon Web Services</a>
+              <a href="https://konfhub.com/privacy-policy" target="_blank">KonfHub Privacy Policy</a>
+              <a href="https://aws.amazon.com/privacy/" target="_blank">AWS Privacy Notice</a>
             </div>
           </form>
         </div>
@@ -2476,10 +2480,10 @@
       // dropdownContainer: document.body,
       // excludeCountries: ["us"],
       // formatOnDisplay: false,
-      // geoIpLookup: function(callback) {
-      //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
-      //     var countryCode = (resp && resp.country) ? resp.country : "";
-      //     callback(countryCode);
+      //  geoIpLookup: function(callback) {
+      //    $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+      //      var countryCode = (resp && resp.country) ? resp.country : "";
+      //      callback(countryCode);
       //   });
       // },
       // hiddenInput: "full_number",
@@ -2492,6 +2496,41 @@
       separateDialCode: true,
       utilsScript: "js/utils.js",
     });
+
+
+
+    // get the country data from the plugin
+    var countryData = window.intlTelInputGlobals.getCountryData(),
+      input = document.querySelector("#phone_number"),
+      addressDropdown = document.querySelector("#address-country");
+
+    // populate the country dropdown
+    for (var i = 0; i < countryData.length; i++) {
+      var country = countryData[i];
+      var optionNode = document.createElement("option");
+      optionNode.value = country.iso2;
+      var textNode = document.createTextNode(country.name);
+      optionNode.appendChild(textNode);
+      addressDropdown.appendChild(optionNode);
+    }
+    // set it's initial value
+    addressDropdown.value = iti.getSelectedCountryData().iso2;
+
+    // listen to the telephone input for changes
+    input.addEventListener('countrychange', function(e) {
+      addressDropdown.value = iti.getSelectedCountryData().iso2;
+      console.log(iti.getSelectedCountryData().name);
+    });
+
+    
+
+    // listen to the address dropdown for changes
+    addressDropdown.addEventListener('change', function() {
+      iti.setCountry(this.value);
+    });
+
+
+
 
 
     $('#idChk-normal').change(function () {
