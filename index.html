@@ -2192,7 +2192,8 @@
             </div>
 
             <div class="group">
-              <input type="email" name="email" id="email" required onfocusout="checkEmail();">
+              <!-- <input type="email" name="email" id="email" required onfocusout="checkEmail();"> -->
+              <input type="email" name="email" id="email" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label><i class="input-sifre-ikon fa fa-envelope-o"></i><span class="span-input" >Email <span
@@ -2470,6 +2471,8 @@
     }
   </script>
   <script src="js/intlTelInput.js"></script>
+  
+  
   <script>
     var input = document.querySelector("#phone_number")
 
@@ -2501,49 +2504,26 @@
 
     // get the country data from the plugin
     var countryData = window.intlTelInputGlobals.getCountryData(),
-      input = document.querySelector("#phone_number"),
-      addressDropdown = document.querySelector("#address-country");
+      input = document.querySelector("#phone_number");
 
-    // populate the country dropdown
-    for (var i = 0; i < countryData.length; i++) {
-      var country = countryData[i];
-      var optionNode = document.createElement("option");
-      optionNode.value = country.iso2;
-      var textNode = document.createTextNode(country.name);
-      optionNode.appendChild(textNode);
-      addressDropdown.appendChild(optionNode);
-    }
-    // set it's initial value
-    addressDropdown.value = iti.getSelectedCountryData().iso2;
-
-    // listen to the telephone input for changes
+    // listen to the telephone input for changes and update country
     input.addEventListener('countrychange', function(e) {
-      addressDropdown.value = iti.getSelectedCountryData().iso2;
-      console.log(iti.getSelectedCountryData().name);
+      var country_code = iti.getSelectedCountryData().iso2;
+      var country_name = iti.getSelectedCountryData().name;
+      var dial_code = iti.getSelectedCountryData().dialCode;
     });
-
-    
-
-    // listen to the address dropdown for changes
-    addressDropdown.addEventListener('change', function() {
-      iti.setCountry(this.value);
-    });
-
-
-
-
 
     $('#idChk-normal').change(function () {
       cb = $(this);
       cb.val(cb.prop('checked'));
     });
-    $('#training-check').change(function () {
-      cb = $(this);
-      cb.val(cb.prop('checked'));
+    // $('#training-check').change(function () {
+    //  cb = $(this);
+    //  cb.val(cb.prop('checked'));
     });
     $('form').submit(function (event) {
       event.preventDefault();
-      if(window.validEmail !== true){
+      if(window.validEmail == true){
         checkEmail(true);
         return;
       }
@@ -2555,7 +2535,7 @@
 
       var city = document.getElementById("city").value;
       var consent = document.getElementById("idChk-normal").value;
-      var trainingCloud = document.getElementById("training-check").value;
+      //var trainingCloud = document.getElementById("training-check").value;
      
      
       let utm = {};
@@ -2577,7 +2557,7 @@
       }
       let dataBody = {
         "user_details":
-          [{ "name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phone, "consent": consent, "form_details": { 'city': city, 'I am interested in AWS Training Offer from Trainocate Cloud Academy (contact me)': trainingCloud}, "ticket_details": [{ "name": "Conference Ticket", "id": "dt1", "price": 0 }], "ticket_name": "Conference Ticket", "ticket_price": 0 }],
+          [{ "name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phone, "consent": consent, "form_details": { 'city': city, 'I am interested in AWS Training Offer from Trainocate Cloud Academy (contact me)': }, "ticket_details": [{ "name": "Conference Ticket", "id": "dt1", "price": 0 }], "ticket_name": "Conference Ticket", "ticket_price": 0 }],
       };
     
       if (location.search) {
@@ -2585,7 +2565,7 @@
       }
       if (phone.length <= 13) {
         var settings = {
-          "url": "https://api.konfhub.com/event/acd",
+          "url": "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/prod",
           "method": "POST",
           "timeout": 0,
           "headers": {
@@ -2594,7 +2574,7 @@
           "data": JSON.stringify(dataBody),
         };
 
-        document.getElementById("register-btn").disabled = true;
+        document.getElementById("register-btn").disabled = false;
         $.ajax(settings).done(function (response) {
           document.getElementById("name").value = "";
           document.getElementById("email").value = "";
@@ -2632,7 +2612,23 @@
       document.getElementById("emailStatus").innerHTML = "";
       window.validEmail = false;
       var email = document.getElementById("email").value;      
-      const url = "https://y1m1c7wq22.execute-api.ap-south-1.amazonaws.com/prod/email-validate?event_id=konfhub-event6736876a&ticket_type=Conference Ticket&email_id=" + email;
+      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&email_id=" + email;
+      $.get(url, function(data){
+        if(data.status_code == 403){
+          document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
+          window.validEmail = false;          
+        }else{
+          window.validEmail = true;
+        }
+      });      
+    }
+
+    function checkNumber(formSubmit){
+      document.getElementById("emailStatus").innerHTML = "";
+      window.validEmail = false;
+      var phone_number = document.getElementById("phone_number").value;
+      var dial_code = dial_code.value;       
+      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&phone_number=" + phone_number + "&country_code=+" + dial_code ;
       $.get(url, function(data){
         if(data.status_code == 403){
           document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
