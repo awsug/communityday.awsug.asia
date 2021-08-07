@@ -1,3 +1,7 @@
 # AWS Community Day, South Asia 2021
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9078c9bb-2001-42e0-a420-1a1778cf1ca1/deploy-status)](https://app.netlify.com/sites/aws-community-day-south-asia-2021/deploys)
+Site is hosted on AWS S3 and served through CloudFront.
+
+All commits to master will be automatically pushed to S3 via AWS CodePipeline.
+
+Cloudfront cache refresh time during development is set to 120 secs. So, changes should reflect after approx 2 mins.
