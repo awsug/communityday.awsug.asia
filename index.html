@@ -2227,7 +2227,8 @@
               <span class="bar"></span>
               <span class="error text-danger">
                 Please enter valid mobile number
-              </span>              
+              </span>
+              <span style="color: red" id="numStatus"></span>              
               <!-- <label>
                   <i class="input-sifre-ikon fa fa-phone"></i>
                   <span class="span-input">Phone Number <span class="text-danger">*</span></span>
@@ -2529,6 +2530,10 @@
         checkEmail(true);
         return;
       }
+      if(window.validEmail == true){
+        checkNumber(true);
+        return;
+      }
 
       var name = document.getElementById("name").value;
       var email = document.getElementById("email").value;
@@ -2617,9 +2622,9 @@
 
     function checkEmail(formSubmit){
       document.getElementById("emailStatus").innerHTML = "";
-      window.validEmail = false;
+      window.validEmail = true;
       var email = document.getElementById("email").value;      
-      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&email_id=" + email;
+      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&email_id=" + email;
       $.get(url, function(data){
         if(data.status_code == 403){
           document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
@@ -2632,14 +2637,14 @@
 
 
     function checkNumber(formSubmit){
-      document.getElementById("emailStatus").innerHTML = "";
-      window.validEmail = false;
+      document.getElementById("numStatus").innerHTML = "";
+      window.validEmail = true;
       var phone_number = document.getElementById("phone_number").value;
       var dial_code = dial_code.value;       
-      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&phone_number=" + phone_number + "&country_code=+" + dial_code ;
+      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&phone_number=" + phone_number + "&country_code=+" + dial_code ;
       $.get(url, function(data){
         if(data.status_code == 403){
-          document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
+          document.getElementById("numStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
           window.validEmail = false;          
         }else{
           window.validEmail = true;
