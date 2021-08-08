@@ -3408,6 +3408,7 @@ transition:.2s all;
     justify-content: space-between;
     font-size: 12px;
     margin-top: -20px;
+    text-align: center;
 }
 .register-privacy-section a{
   color: #929292;
