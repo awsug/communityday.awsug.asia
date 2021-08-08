@@ -330,11 +330,11 @@
       </div>
     </div> -->
  
-<!-- workshop_modal Start  -->
+<!-- workshop_modal Start 
 <div id="workshop_modal" class="modal fade fillo workshop_modal" role="dialog" tabindex="-1">
   <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
+    < Modal content >
+    < <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="heading-ttl">
@@ -358,7 +358,7 @@
                     </div>
                     <p>Gets you access to Containers Workshop </p>
                     <button type="button" data-toggle="modal" data-target="">Sold Out</button>
-                    <!-- <button type="button">Announcing Soon</button> -->
+                     <button type="button">Announcing Soon</button> 
                   </div>
                 </div>
 
@@ -368,7 +368,7 @@
                     <div class="bg_img"><img src="images/Machine-Learning.svg" class="img-responsive"></div>
                     <p>Gets you access to Machine Learning </p>
                     <button type="button" data-toggle="modal" data-target="">Sold Out</button>
-                    <!-- <button type="button">Announcing Soon</button> -->
+                     <button type="button">Announcing Soon</button> 
                   </div>
                 </div>
 
@@ -378,17 +378,17 @@
                     <div class="bg_img"><img src="images/AWS-Lambda.svg" class="img-responsive"></div>
                     <p>Gets you access to Serverless workshop </p>
                     <button type="button" data-toggle="modal" data-target="">Sold Out</button>
-                    <!-- <button type="button">Announcing Soon</button> -->
+                     <button type="button">Announcing Soon</button>
                   </div>
                 </div>
-                <!-- <div class="col-md-3">
+                <div class="col-md-3">
                   <div class="card tick_work_4 with_icon dark">
                     <h4 class="heading-ttl">Alexa</h4>
                     <div class="bg_img"><img src="images/Amazon_Alexa.png" class="img-responsive"></div>
                     <p>Gets you access to Alexa Workshop </p>
                     <button type="button" data-toggle="modal" data-target="">Closed</button>                    
                   </div>
-                </div> -->
+                </div> 
               </div>
             </div>
           </div>
@@ -401,7 +401,33 @@
     </div>
 
   </div>
-</div>
+</div> -->
+
+<!-- workshop_modal Start -->
+<div id="workshop_modal" class="modal fade fillo workshop_modal" role="dialog" tabindex="-1">
+  <div class="modal-dialog">
+    <!-- Modal content -->
+     <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="heading-ttl">
+          <p>REGISTRATION RECEIVED</p>
+          
+        </h4>
+      </div>
+      <div class="modal-body">
+        <div id="page">
+          <div class="section section-tickets text-center inv">
+            <div class="container">
+              <h4 class="main-heading-ttl text-center workshop_title">Thank you for the registration!</h4>
+              <h3>Please check your email for additional infromation about the event</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div> 
+  </div>
+  </div>
  
 
     <!-- Modals-->
@@ -2622,7 +2648,7 @@
 
     function checkEmail(formSubmit){
       document.getElementById("emailStatus").innerHTML = "";
-      window.validEmail = true;
+      window.validEmail = false;
       var email = document.getElementById("email").value;      
       const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&email_id=" + email;
       $.get(url, function(data){
