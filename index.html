@@ -2611,7 +2611,7 @@
       }
       if (phone.length <= 13) {
         var settings = {
-          "url": "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/prod",
+          "url": "https://vhfmnv7a2h.execute-api.ap-south-1.amazonaws.com/prod/event/capture/v2",
           "method": "POST",
           "timeout": 0,
           "headers": {
@@ -2654,30 +2654,13 @@
       document.getElementById("track1btn").style.background = track1color;     
       document.getElementById("track2btn").style.background = track2color;
     }
-
-    // function checkEmail(formSubmit){
-    //   document.getElementById("emailStatus").innerHTML = "";
-    //   window.validEmail =false;
-    //   var email = document.getElementById("email").value;      
-    //   const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&email_id=" + email;
-    //   $.get(url, function(data){
-    //     if(data.status == 200){
-    //       document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
-    //       window.validEmail = false;
-    //     }else{          
-    //       document.getElementById("emailStatus").innerHTML = "works";
-    //       window.validEmail = true;
-    //     }
-    //   });
-    // }
     
-
     //checks and validates email address via the Konfhub API
     function checkEmail(formSubmit) {
       document.getElementById("emailStatus").innerHTML = "";
       window.validEmail = false;
       var email = document.getElementById("email").value;
-      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&email_id=" + email;
+      const url = "https://vhfmnv7a2h.execute-api.ap-south-1.amazonaws.com/prod/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&email_id=" + email;
       fetch(url)
       .then(response => {
         var statusresp = response.status;
@@ -2706,7 +2689,7 @@
       window.validNum = false;
       var phone = document.getElementById("phone_number").value;
       var dial_code = iti.getSelectedCountryData().dialCode;
-      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&phone_number=" + phone + "&country_code=+" + dial_code ;
+      const url = "https://vhfmnv7a2h.execute-api.ap-south-1.amazonaws.com/prod/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&phone_number=" + phone + "&country_code=+" + dial_code ;
       fetch(url)
       .then(response => {
         var statusresp = response.status;
