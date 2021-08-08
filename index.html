@@ -2192,8 +2192,8 @@
             </div>
 
             <div class="group">
-              <!-- <input type="email" name="email" id="email" required onfocusout="checkEmail();"> -->
-              <input type="email" name="email" id="email" required>
+              <input type="email" name="email" id="email" required onfocusout="checkEmail();">
+              <!-- <input type="email" name="email" id="email" required> -->
               <span class="highlight"></span>
               <span class="bar"></span>
               <label><i class="input-sifre-ikon fa fa-envelope-o"></i><span class="span-input" >Email <span
@@ -2475,6 +2475,7 @@
   
   <script>
     var input = document.querySelector("#phone_number")
+    //let ccodes = countryvals()
 
     var iti = window.intlTelInput(input, {
       // allowDropdown: false,
@@ -2501,17 +2502,18 @@
     });
 
 
-
-    // get the country data from the plugin
-    var countryData = window.intlTelInputGlobals.getCountryData(),
-      input = document.querySelector("#phone_number");
-
-    // listen to the telephone input for changes and update country
-    input.addEventListener('countrychange', function(e) {
-      var country_code = iti.getSelectedCountryData().iso2;
-      var country_name = iti.getSelectedCountryData().name;
-      var dial_code = iti.getSelectedCountryData().dialCode;
-    });
+    
+      // get the country data from the plugin
+      var countryData = window.intlTelInputGlobals.getCountryData(),
+        input = document.querySelector("#phone_number");
+    
+      // listen to the telephone input for changes and update country
+      //  input.addEventListener('countrychange', function(e) {
+      //    country_code = iti.getSelectedCountryData().iso2;
+      //    country_name = iti.getSelectedCountryData().name;
+      //    dial_code = iti.getSelectedCountryData().dialCode;
+      //    console.log(country_code, country_name, dial_code);
+      //  });
 
     $('#idChk-normal').change(function () {
       cb = $(this);
@@ -2520,7 +2522,7 @@
     // $('#training-check').change(function () {
     //  cb = $(this);
     //  cb.val(cb.prop('checked'));
-    });
+    //});
     $('form').submit(function (event) {
       event.preventDefault();
       if(window.validEmail == true){
@@ -2536,6 +2538,11 @@
       var city = document.getElementById("city").value;
       var consent = document.getElementById("idChk-normal").value;
       //var trainingCloud = document.getElementById("training-check").value;
+
+      var country_code = iti.getSelectedCountryData().iso2;
+      var country_name = iti.getSelectedCountryData().name;
+      var dial_code = iti.getSelectedCountryData().dialCode;
+      console.log(country_code, country_name, dial_code);
      
      
       let utm = {};
@@ -2556,9 +2563,9 @@
         return false;
       }
       let dataBody = {
-        "user_details":
-          [{ "name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phone, "consent": consent, "form_details": { 'city': city, 'I am interested in AWS Training Offer from Trainocate Cloud Academy (contact me)': }, "ticket_details": [{ "name": "Conference Ticket", "id": "dt1", "price": 0 }], "ticket_name": "Conference Ticket", "ticket_price": 0 }],
+      "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{"name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phone, "consent": true, "country": country_name, "dial_code": dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1 }] }, "utm": null, "payment_id": "free_ticket"
       };
+      console.log(JSON.stringify(dataBody));
     
       if (location.search) {
         dataBody['utm'] = utm
@@ -2608,20 +2615,37 @@
       document.getElementById("track2btn").style.background = track2color;
     }
 
-    function checkEmail(formSubmit){
-      document.getElementById("emailStatus").innerHTML = "";
-      window.validEmail = false;
-      var email = document.getElementById("email").value;      
-      const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&email_id=" + email;
-      $.get(url, function(data){
-        if(data.status_code == 403){
-          document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
-          window.validEmail = false;          
-        }else{
-          window.validEmail = true;
-        }
-      });      
+    // function checkEmail(formSubmit){
+    //   document.getElementById("emailStatus").innerHTML = "";
+    //   window.validEmail = false;
+    //   var email = document.getElementById("email").value;      
+    //   const url = "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&email_id=" + email;
+    //   $.get(url, function(data){
+    //     if(data.status_code == 403){
+    //       document.getElementById("emailStatus").innerHTML = data.message.reason + ". Please use a valid email to register.";
+    //       window.validEmail = false;          
+    //     }else{          
+    //       var emailresult = JSON.parse(response.json());
+    //       console.log(emailresult);
+    //       window.validEmail = true;
+    //     }
+    //   });      
+    // }
+
+    //Still working on this validation part - For email and below this for number.
+      function checkEmail(formSubmit){
+        var email = document.getElementById("email").value;
+        var settings = {
+          "url": "https://f165644d-56bb-4909-815d-3d8e3b46a4af.mock.pstmn.io/local/validate?event_id=98aa6c47-7f73-444c-b145-ee46ed28fcb7&ticket_type=Conference Ticket&email_id=" + email,
+          "method": "POST",
+          "timeout": 0,
+          "headers": {
+            "Content-Type": "application/json"
+          }
+      }
     }
+ 
+
 
     function checkNumber(formSubmit){
       document.getElementById("emailStatus").innerHTML = "";
