@@ -2546,6 +2546,17 @@ ul.circle li {
   background-image: url(../images/vols/Sreekar.jpeg);
 }
 
+#page .section-6 .volunteers .vl-i .person[data-fname="Mahmud"] .img {
+  background-image: url(../images/vols/Mahmud.jpeg);
+}
+#page .section-6 .volunteers .vl-i .person[data-fname="Sudip"] .img {
+  background-image: url(../images/vols/Sudip.jpeg);
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Mim"] .img {
+  background-image: url(../images/vols/Mim.jpeg);
+}
+
 /* #page .section-9 .ambassadors .vl-i .person[data-fname="Kumar"] .img {
   background-image: url(../images/ambs/kumar_harsh.jpg);
   background-size: cover;
@@ -3185,6 +3196,31 @@ input:valid ~ label {
   font-size: 14px;
   color: rgba(137, 137, 137, 0.7);
 }
+
+/* COUNTRY DROP DOWN =========================== */
+.country-select{
+  margin-bottom: 30px;  
+}
+
+.country-select label{
+  color: rgba(137, 137, 137, 0.7);
+  font-size: 15px;
+  font-weight: normal;
+  
+}
+.country-select select{
+  color: rgb(29, 29, 29);
+  font-size: 15px;
+  font-weight: normal;
+  width: 77%;
+  margin-left: 10px;
+  padding: 10px 10px 10px 10px;
+  background: none;  
+  border: none;
+  border-bottom: 1px solid rgba(137, 137, 137, 0.5);
+}
+
+
 /* BOTTOM BARS ================================= */
 
 .bar {
@@ -3283,7 +3319,7 @@ input:valid ~ label {
 /* css for switch input */
 .consent-row{
   margin-top: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 .switch {
 }
@@ -3376,14 +3412,18 @@ transition:.2s all;
   margin-top: 5px;
 }
 .powered-logo {
-  width: 25%;
+  width: 35%;
   margin: auto;
+  margin-bottom: 30px !important;
 }
 .register-privacy-section{
   display: flex;
     justify-content: space-between;
     font-size: 12px;
-    margin-top: -20px;
+    margin-top: 5px;
+    padding-left: 5%;
+    padding-right: 5%;
+
 }
 .register-privacy-section a{
   color: #929292;
@@ -3473,7 +3513,7 @@ transition:.2s all;
 @media only screen and (max-width:320px){
   .consent-row {
     margin-top: 35px;
-    margin-bottom: 60px;
+    margin-bottom: 90px;
   }
  
 }
