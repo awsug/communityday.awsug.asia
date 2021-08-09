@@ -2297,15 +2297,8 @@
           
             <div class="consent-row">
               <span class="switch">
-                <input type="checkbox" name="consent1" class="switch" id="idChk-normal" checked value="true">
-                <label for="idChk-normal">By registering for this event, you provide consent to share your contact information to the event organizers and KonfHub Technologies LLP to share the event and other updates with you by email, post or telephone.
-                   You understand and accept that you will abide by the KonfHub's Code Of Conduct and Terms and Conditions.</label>
-              </span>
-            </div>
-            <div class="consent-row">
-              <span class="switch">
-                <input type="checkbox" name="consent2" class="switch" id="idChk2-normal" checked value="true">
-                <label for="idChk2-normal">Yes, I'd like to provide my contact information to Amazon Web Services (AWS) so AWS can share the latest AWS news and offers with me by email, post or telephone.
+                <input type="checkbox" name="consent" class="switch" id="idChk-normal" checked value="true">
+                <label for="idChk-normal">Yes, I'd like Konfhub to provide my contact information to Amazon Web Services (AWS) so AWS can share the latest AWS news and offers with me by email, post or telephone.
                   You may unsubscribe from receiving news and offers from the sender at any time by following the instructions in the communications received. AWS handles your information as described in the AWS Privacy Notice.</label>
               </span>
             </div>
@@ -2584,8 +2577,8 @@
         return;
       }
 
-
-      let consent2 = $("#idChk2-normal").is(":checked") ? "true" : "false";
+      //Check whether consent #2 is selected and pass value as true or false
+      //let consent2 = $("#idChk2-normal").is(":checked") ? "true" : "false";
 
       var name = document.getElementById("name").value;
       var email = document.getElementById("email").value;
@@ -2593,7 +2586,7 @@
       var organisation = document.getElementById("organisation").value;
 
       var city = document.getElementById("city").value;
-      var consent1 = document.getElementById("idChk-normal").value;
+      var consent = document.getElementById("idChk-normal").value;
       //var trainingCloud = document.getElementById("training-check").value;
       var phonenum = document.getElementById("phone_number").value;
 
@@ -2615,14 +2608,14 @@
       console.log(utm);
       //var phonenumber = iti.getNumber();
       var phone = iti.getNumber(intlTelInputUtils.numberFormat.E164);
-      if (!JSON.parse(consent1)) {
+      if (!JSON.parse(consent)) {
         [].forEach.call(document.querySelectorAll('.accept-terms'), function (el) {
           el.style.display = 'block';
         });
         return false;
       }
       let dataBody = {
-      "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{"name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phonenum, "consent": consent1, "country": country_name, "dial_code": dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1,"misc": {"14770": consent2, "14783": city}}] }, "utm": null, "payment_id": "free_ticket"
+      "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{"name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phonenum, "consent": consent, "country": country_name, "dial_code": dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1,"misc": {"14770": consent, "14783": city}}] }, "utm": null, "payment_id": "free_ticket"
       };
       console.log(JSON.stringify(dataBody));
     
