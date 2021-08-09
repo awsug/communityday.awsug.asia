@@ -3418,8 +3418,10 @@ transition:.2s all;
   display: flex;
     justify-content: space-between;
     font-size: 12px;
-    margin-top: -20px;
-    text-align: center;
+    margin-top: 5px;
+    padding-left: 5%;
+    padding-right: 5%;
+
 }
 .register-privacy-section a{
   color: #929292;
