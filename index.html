@@ -2632,7 +2632,7 @@
         return false;
       }
       let dataBody = {
-      "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{"name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phonenum, "consent": true, "country": country_name, "dial_code": "+" + dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1,"misc": {"14770": true, "14783": city}}] }, "utm": null, "payment_id": "free_ticket"
+      "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{"name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phonenum, "consent": true, "country": country_name, "dial_code": "+" + dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1,"misc": {"14770": true, "14783": city}}] }, "utm": "null", "payment_id": "free_ticket"
       };
       //console.log(JSON.stringify(dataBody));
     
@@ -2650,7 +2650,7 @@
           "data": JSON.stringify(dataBody),
         };
 
-        document.getElementById("register-btn").disabled = false;
+        document.getElementById("register-btn").disabled = true;
         $.ajax(settings).done(function (response) {
           document.getElementById("name").value = "";
           document.getElementById("email").value = "";
