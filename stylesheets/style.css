@@ -2535,6 +2535,10 @@ ul.circle li {
   background-image: url(../images/vols/Atul_Kumbhar.jpg);
 }
 
+#page .section-6 .volunteers .vl-i .person[data-fname="Piyush"] .img {
+  background-image: url(../images/vols/piyush-jalan.png);
+}
+
 #page .section-6 .volunteers .vl-i .person[data-fname="Prithviraj"] .img {
   background-image: url(../images/vols/Prithviraj.jpg);
 }
