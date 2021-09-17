@@ -2496,6 +2496,9 @@ ul.circle li {
 #page .section-6 .volunteers .vl-i .person[data-fname="Sridevi"] .img {
 	background-image: url(../images/vols/Sridevi.png);
 }
+#page .section-6 .volunteers .vl-i .person[data-fname="Srinivas"] .img {
+	background-image: url(../images/vols/Srinivas.jpeg);
+}
 /* line 1042, ../sass/shared/_home.scss */
 #page .section-6 .volunteers .vl-i .person[data-fname="Sukanya"] .img {
 	background-image: url(../images/vols/Sukanya.png);
@@ -2519,6 +2522,10 @@ ul.circle li {
 
 #page .section-6 .volunteers .vl-i .person[data-fname="Keshav"] .img {
 	background-image: url(../images/vols/Keshav.jpg);
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Lakshman"] .img {
+	background-image: url(../images/vols/Lakshman.jpeg);
 }
 
 #page .section-6 .volunteers .vl-i .person[data-fname="Bikas"] .img {
