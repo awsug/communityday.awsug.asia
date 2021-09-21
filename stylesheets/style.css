@@ -2540,6 +2540,10 @@ ul.circle li {
 	background-image: url(../images/vols/Toshal.jpg);
 }
 
+#page .section-6 .volunteers .vl-i .person[data-fname="Vedant"] .img {
+	background-image: url(../images/vols/Vedant-Kakde.png);
+}
+
 #page .section-6 .volunteers .vl-i .person[data-fname="Abhishek"] .img {
 	background-image: url(../images/vols/Abhishek_wagh.jpg);
 	background-size: 125%;
