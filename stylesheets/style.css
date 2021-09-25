@@ -688,6 +688,15 @@ ul.circle li {
 	font-size: 14px;
 	line-height: 1.5;
 }
+.workshops li {
+	list-style-type: disc;
+	font-size: 14px;
+	line-height: 30px;
+	margin-left: 15px;
+}
+.workshops li li {
+	list-style-type: circle;
+}
 @media only screen and (min-width: 992px) {
 	/* line 353, ../sass/shared/_site.scss */
 	.modal.fillo .modal-body .wid {
@@ -707,6 +716,11 @@ ul.circle li {
 	list-style-type: circle;
 	margin-left: 15px;
 	margin-top: 15px;
+}
+.workshops ul {
+	margin-left: 15px;
+	margin-bottom: 30px;
+	margin-top: 10px;
 }
 /* line 372, ../sass/shared/_site.scss */
 .modal#myModal {
