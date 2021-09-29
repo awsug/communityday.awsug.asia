@@ -611,7 +611,7 @@
             <hr>
             <div class="foot-btn d-flex justify-content-center">
               <!-- <a href="https://konfhub.com/acd-serverless" target="_blank" class="button" >Register</a> -->
-              <button type="button" data-toggle="modal" data-target="#RegisterIframe_1">Register</button>
+              <button type="button" data-toggle="modal" data-target="#RegisterIframe_1" onclick="cloudPractionerIframe()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -710,7 +710,7 @@
             <hr>
             <div class="foot-btn d-flex justify-content-center">
               <!-- <a href="https://konfhub.com/acd-alexa" target="_blank" class="button" >Register</a> -->
-              <button type="button" data-toggle="modal" data-target="#RegisterIframe_2">Register</button>
+              <button type="button" data-toggle="modal" data-target="#RegisterIframe_2" onclick="serverlessIframe()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -829,7 +829,7 @@
             <hr>
             <div class="foot-btn d-flex justify-content-center">
               <!-- <a href="https://konfhub.com/acd-ml" target="_blank" class="button" >Register</a> -->
-              <button type="button" data-toggle="modal" data-target="#RegisterIframe_3">Register</button>
+              <button type="button" data-toggle="modal" data-target="#RegisterIframe_3" onclick="jamIframe()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -1245,14 +1245,6 @@
               <button type="button">Announcing Soon</button>
             </div>
           </div>
-          <!-- <div class="col-md-3">
-            <div class="card tick_work_4 with_icon dark">
-              <h4 class="heading-ttl">Alexa</h4>
-              <div class="bg_img"></div>
-              <p>Gets you access to Alexa Workshop </p>
-              <button type="button" data-toggle="modal" data-target="">Closed</button>
-            </div>
-          </div>-->
         </div>
       </div>
     </div>
@@ -2072,13 +2064,13 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIframe('cloudpractionerws')">&times;</button>
           <h4 class="heading-ttl">
             <p>Register for Cloud Practitioner Workshop</p>
           </h4>
         </div>
         <div class="modal-body">
-          <iframe class="embed-responsive-item" id="cloudpractionerws" src="" onLoad="cloudPractionerIframe()" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" id="cloudpractionerws" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeIframe('cloudpractionerws')">Close</button>
@@ -2096,13 +2088,13 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIframe('serverlessws')">&times;</button>
           <h4 class="heading-ttl">
             <p>Register for Serverless Workshop</p>
           </h4>
         </div>
         <div class="modal-body">
-          <iframe class="embed-responsive-item" id="serverlessws" src=""  onLoad="serverlessIframe()" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" id="serverlessws" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeIframe('serverlessws')">Close</button>
@@ -2120,13 +2112,13 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIframe('jamsws')">&times;</button>
           <h4 class="heading-ttl">
             <p>Register for AWS JAM Event</p>
           </h4>
         </div>
         <div class="modal-body">
-          <iframe class="embed-responsive-item" id="jamsws" src=""  onLoad="jamIframe()" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" id="jamsws" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeIframe('jamsws')">Close</button>
