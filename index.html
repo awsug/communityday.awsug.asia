@@ -611,7 +611,7 @@
             <hr>
             <div class="foot-btn d-flex justify-content-center">
               <!-- <a href="https://konfhub.com/acd-serverless" target="_blank" class="button" >Register</a> -->
-              <button type="button" data-toggle="modal" data-target="#RegisterIframe_1">Register</button>
+              <button type="button" data-toggle="modal" data-target="#RegisterIframe_1" onclick="cloudPractionerIframe()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -710,7 +710,7 @@
             <hr>
             <div class="foot-btn d-flex justify-content-center">
               <!-- <a href="https://konfhub.com/acd-alexa" target="_blank" class="button" >Register</a> -->
-              <button type="button" data-toggle="modal" data-target="#RegisterIframe_2">Register</button>
+              <button type="button" data-toggle="modal" data-target="#RegisterIframe_2" onclick="serverlessIframe()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -829,122 +829,7 @@
             <hr>
             <div class="foot-btn d-flex justify-content-center">
               <!-- <a href="https://konfhub.com/acd-ml" target="_blank" class="button" >Register</a> -->
-              <button type="button" data-toggle="modal" data-target="#RegisterIframe_3">Register</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!--     4      -->
-
-
-    <div id="workshop_4" class="modal fade fillo" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="heading-ttl">
-              <p>Containers</p>
-            </h4>
-          </div>
-          <div class="modal-body">
-            <div style="color: red; font-weight: bold; text-align: center;">NOTE: WORKSHOP WILL BE CONDUCTED ONLINE
-            </div>
-            <div style="color: red; text-align: center;">Those who attend the entire workshop, will get amazon vouchers
-              equivalent to the workshop ticket amount.</div>
-            <table class="table table-bordered">
-              <tr>
-                <th>Date</th>
-                <th>Duration</th>
-              </tr>
-              <tr>
-                <td>17th Oct, 2:00PM</td>
-                <td>4 Hours</td>
-              </tr>
-            </table>
-            <p class="heading-ttl small-head">Description</p>
-            <p>
-              <b> Speakers </b>:
-              <li>Sandip Das ( AWS Container Hero)</li>
-              <li>Dipali Kulshrestha (AWS Community Leader)</li><br>
-              <b> Topic : </b>Microservices Deployment With AWS ECS
-            </p>
-            <b> Agenda :</b>In this workshop, we will cover how to containerize and deploy Microservices in AWS ECS</p>
-
-            <p class="heading-ttl small-head">Objective:</p>
-            <ul class="modal-ul">
-              <p><b>In this 4 hour long workshop, you will learn:</b></p>
-              <li>Containerize Applications and upload docker image in AWS ECR</li>
-              <li>Create ECS Cluster</li>
-              <li>Task Definition (with with an image from ECR and from DockerHub)</li>
-              <li>Running / Scheduling standalone Task</li>
-              <li>Configuring and running Services with Load balancing and Auto Scaling (including Capacity Provider)
-              </li>
-              <li>Advance Auto Scaling with ECS</li>
-              <li>Running Tasks and services with fargate</li>
-              <li>Using ECS CLI / copilot</li>
-            </ul>
-
-            <p class="heading-ttl small-head">Session Pre-Requisites :</p>
-            <ul class="modal-ul">
-              <li>Active Internet Connection</li>
-              <li>Active AWS Account</li>
-              <li>Basic understanding of Containerization and AWS Services like IAM, EC2 </li>
-              <li>Basic knowledge of NodeJs/ any programming languages, in demo application we will use NodeJs</li>
-            </ul>
-            <p class="heading-ttl small-head">Technical Resources :</p>
-            <ul class="modal-ul">
-              <li>AWS Services : AWS EC2, ECR, ECS, Fargate, App Mesh, Code CodeBuild</li>
-            </ul>
-          </div>
-
-          <div>
-            <img src=""></img>
-          </div>
-
-          <div class="modal-footer">
-
-            <br>
-            <div class="row">
-              <div class="col-md-1">
-
-              </div>
-
-              <div class="col-md-2">
-                <img class="speakerImg" src="images\speakers\sandipdas.jpeg" alt="speaker img">
-
-              </div>
-
-              <div class="col-md-3">
-                <div id="align">
-                  <h4 style="color:#ff9900">AWS Container Hero</h4>
-                  <h4><a href="https://www.linkedin.com/in/sandip-das-developer/" target="_blank">Sandip Das</a></h4>
-                  <p><a href="" target="_blank"></a></p>
-                </div>
-              </div>
-
-              <div class="col-md-2">
-                <img class="speakerImg" src="images\speakers\Dipali.png" alt="speaker img">
-              </div>
-
-              <div class="col-md-3">
-                <div id="align">
-                  <h4 style="color:#ff9900">AWS Community Leader</h4>
-                  <h4><a href="https://www.linkedin.com/in/dipalik/" target="_blank">Dipali Kulshrestha</a></h4>
-                  <p><a href="https://www.rbs.in/" target="_blank">Royal Bank of Scotland</a></p>
-                </div>
-              </div>
-
-            </div>
-            <br>
-            <hr>
-            <div class="foot-btn d-flex justify-content-center">
-              <!-- <a href="https://konfhub.com/acd-containers" target="_blank" class="button" >Register</a> -->
-              <!-- <button type="button" data-toggle="modal" class="button" data-target="#RegisterIframe_4">Register</button> -->
+              <button type="button" data-toggle="modal" data-target="#RegisterIframe_3" onclick="jamIframe()">Register</button>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
           </div>
@@ -1360,14 +1245,6 @@
               <button type="button">Announcing Soon</button>
             </div>
           </div>
-          <!-- <div class="col-md-3">
-            <div class="card tick_work_4 with_icon dark">
-              <h4 class="heading-ttl">Alexa</h4>
-              <div class="bg_img"></div>
-              <p>Gets you access to Alexa Workshop </p>
-              <button type="button" data-toggle="modal" data-target="">Closed</button>
-            </div>
-          </div>-->
         </div>
       </div>
     </div>
@@ -2187,17 +2064,16 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIframe('cloudpractionerws')">&times;</button>
           <h4 class="heading-ttl">
             <p>Register for Cloud Practitioner Workshop</p>
           </h4>
         </div>
         <div class="modal-body">
-          <iframe class="embed-responsive-item"
-            src="https://events.konfhub.com/event/#/widget/acd-cloud-workshop?selected_ticket=5354&logo=brown&loader_bg=232f3f&logo=white&register_btn_bg=ff9900&ticket_amt_bg=ff9900&primary_cl=555&secondary_cl=555&checkbox_cl=08d&font_family=Roboto" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" id="cloudpractionerws" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeIframe('cloudpractionerws')">Close</button>
         </div>
       </div>
 
@@ -2212,17 +2088,16 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIframe('serverlessws')">&times;</button>
           <h4 class="heading-ttl">
             <p>Register for Serverless Workshop</p>
           </h4>
         </div>
         <div class="modal-body">
-          <iframe class="embed-responsive-item"
-            src="https://events.konfhub.com/event/#/widget/acd-serverless-workshop?selected_ticket=5357&logo=brown&loader_bg=232f3f&logo=white&register_btn_bg=ff9900&ticket_amt_bg=ff9900&primary_cl=555&secondary_cl=555&checkbox_cl=08d&font_family=Roboto" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" id="serverlessws" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeIframe('serverlessws')">Close</button>
         </div>
       </div>
 
@@ -2237,17 +2112,16 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal" onclick="closeIframe('jamsws')">&times;</button>
           <h4 class="heading-ttl">
             <p>Register for AWS JAM Event</p>
           </h4>
         </div>
         <div class="modal-body">
-          <iframe class="embed-responsive-item"
-            src="https://events.konfhub.com/event/#/widget/acd-jam?selected_ticket=5359&logo=brown&loader_bg=232f3f&logo=white&register_btn_bg=ff9900&ticket_amt_bg=ff9900&primary_cl=555&secondary_cl=555&checkbox_cl=08d&font_family=Roboto" allowfullscreen></iframe>
+          <iframe class="embed-responsive-item" id="jamsws" src="" frameborder="0" width="100%" height="500px" allowfullscreen></iframe>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="closeIframe('jamsws')">Close</button>
         </div>
       </div>
 
@@ -2255,10 +2129,32 @@
   </div>
   <!-- Iframe RegisterIframe_3 Close  -->
 
-
-
-
   <div id="snackbar"> Thanks, Your registration has been done successfully. </div>
+
+  <script>
+
+    function cloudPractionerIframe() {
+      var iframe = document.getElementById('cloudpractionerws');
+      iframe.src = "https://events.konfhub.com/event/#/widget/acd-cloud-workshop?selected_ticket=5354&logo=brown&loader_bg=232f3f&logo=white&register_btn_bg=ff9900&ticket_amt_bg=ff9900&primary_cl=555&secondary_cl=555&checkbox_cl=08d&font_family=Roboto";
+    }
+
+    
+    function serverlessIframe() {
+      var iframe = document.getElementById('serverlessws');
+      iframe.src = "https://events.konfhub.com/event/#/widget/acd-serverless-workshop?selected_ticket=5357&logo=brown&loader_bg=232f3f&logo=white&register_btn_bg=ff9900&ticket_amt_bg=ff9900&primary_cl=555&secondary_cl=555&checkbox_cl=08d&font_family=Roboto";
+    }
+    
+    function jamIframe() {
+      var iframe = document.getElementById('jamsws');
+      iframe.src = "https://events.konfhub.com/event/#/widget/acd-jam?selected_ticket=5359&logo=brown&loader_bg=232f3f&logo=white&register_btn_bg=ff9900&ticket_amt_bg=ff9900&primary_cl=555&secondary_cl=555&checkbox_cl=08d&font_family=Roboto";
+    }
+
+    function closeIframe(iframe_id) {
+      var iframe = document.getElementById(iframe_id);
+      iframe.src = ""
+    }
+
+  </script>
 
   <script type="text/javascript">
     var latt = 12.9767814;
