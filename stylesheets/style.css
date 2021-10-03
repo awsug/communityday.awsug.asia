@@ -2459,6 +2459,9 @@ ul.circle li {
 #page .section-6 .volunteers .vl-i .person[data-fname="Dhaval"] .img {
 	background-image: url(../images/vols/Dhaval.png);
 }
+#page .section-6 .volunteers .vl-i .person[data-fname="Dhruv"] .img {
+	background-image: url(../images/vols/Dhruv_Aggarwal.png);
+}
 /* line 1006, ../sass/shared/_home.scss */
 #page .section-6 .volunteers .vl-i .person[data-fname="Dijeesh"] .img {
 	background-image: url(../images/vols/Dijeesh.png);
