@@ -2222,6 +2222,7 @@
 
         if (isReferral == true) {
             document.getElementById('validate_referral-div').style.display = 'block';
+            document.getElementById('register-btn').disabled = true;
           }
         else {
             document.getElementById('validate_referral-div').style.display = 'none';
@@ -2240,18 +2241,16 @@
           if (statusresp == 200) {
             document.getElementById('otpsent').innerHTML = "OTP has been sent to email address";
             document.getElementById('email').disabled = true;
-          } else {
-              if (statusresp == 400) {
+          } else if (statusresp == 400) {
               document.getElementById('failedemail').innerHTML = "Missing Mandatory Fields! Contact Support";
               }
-              if (statusresp == 500) {
+            else if (statusresp == 500) {
                 document.getElementById('failedemail').innerHTML = "Internal server error! Try again later.";
               }
             else {
                     document.getElementById('failedemail').innerHTML = "Something went wrong! Try again or contact support.";
                 }
-              }
-        });
+          });
       
       document.getElementById('validate_referral-btn').value = "Resend OTP";
       document.getElementById('validate_referral-btn').disabled = true;
@@ -2281,30 +2280,30 @@
       $.ajax(settings).done(function (jqXHR) {
         var otpstatusresponse = jqXHR;
         otpstatus = otpstatusresponse.status_code;
-        //console.log("OTP Status is: " + otpstatus);
+        console.log("OTP Status is: " + otpstatus);
         if (otpstatus == 200) {
+            document.getElementById('otpfailed').innerHTML = "";
             document.getElementById('otpsuccess').innerHTML = "OTP has been ssuccessfully verified";
             document.getElementById('validate_referral-div').style.display = 'none';
             document.getElementById('validateotp-btn').disabled = true;
+            document.getElementById('register-btn').disabled = false;
             setTimeout(function(){
                 var element = document.getElementById('validateotp-div').style.display = 'none';
               }, 2000);
-          } else {
-              if (statusresp == 400) {
+          } else if (otpstatus == 400) {
                 document.getElementById('otpfailed').innerHTML = "Missing Mandatory Fields";
                 }
-                if (statusresp == 403) {
+            else if (otpstatus == 403) {
                 document.getElementById('otpfailed').innerHTML = "OTP vefication failed! Try Again.";
                 document.getElementById('validateotp-btn').disabled = false;
                 }
-                if (statusresp == 500) {
+            else if (otpstatus == 500) {
                   document.getElementById('otpfailed').innerHTML = "Internal server error. Try Later";
                 }
-              else {
+            else {
                       document.getElementById('otpfailed').innerHTML = "Something went wrong! Try again or contact support.";
                   }
-                }
-            });
+          });
       }
 
   </script>
@@ -2473,17 +2472,72 @@
       var dial_code = iti.getSelectedCountryData().dialCode;
       //console.log(country_code, country_name, dial_code);
 
+      
+      function getAllUrlParams(url) {
+        var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+        var obj = {};
 
-      let utm = {};
-      if (location.search) {
-        const urlParams = new URLSearchParams(location.search);
-        for (const [key, value] of urlParams) {
-          utm[key] = value;
+        if (queryString) {
+          queryString = queryString.split('#')[0];
+          var arr = queryString.split('&');
+
+          for (var i = 0; i < arr.length; i++) {
+            var a = arr[i].split('=');
+            var paramName = a[0];
+            var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+
+            paramName = paramName.toLowerCase();
+            if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+
+            if (paramName.match(/\[(\d+)?\]$/)) {
+              var key = paramName.replace(/\[(\d+)?\]/, '');
+              if (!obj[key]) obj[key] = [];
+
+              if (paramName.match(/\[\d+\]$/)) {
+                var index = /\[(\d+)\]/.exec(paramName)[1];
+                obj[key][index] = paramValue;
+              } else {
+                obj[key].push(paramValue);
+              }
+            } else {
+              if (!obj[paramName]) {
+                obj[paramName] = paramValue;
+              } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+                obj[paramName] = [obj[paramName]];
+                obj[paramName].push(paramValue);
+              } else {
+                obj[paramName].push(paramValue);
+              }
+            }
+          }
         }
-      } else {
-        utm = "null"
+        return obj;
       }
-      console.log(utm);
+      
+      let utms = {"utm_source": getAllUrlParams().utm_source, "utm_medium":getAllUrlParams().utm_medium, "utm_content":getAllUrlParams().utm_content, "utm_campaign":getAllUrlParams().utm_campaign};
+      Object.keys(utms).forEach(key => utms[key] === undefined ? delete utms[key] : {});
+      if (Object.keys(utms).length === 0) {
+        utms = "null"        
+      }
+      else {
+      }
+      //JSON.stringify(utms);
+      let utm_referred_by = (getAllUrlParams().referred_by) ? getAllUrlParams().referred_by : "null";
+      let utm_referral_mode = (getAllUrlParams().referral_mode) ? getAllUrlParams().referral_mode : "null";
+      // console.log(utms);
+      // console.log(utm_referred_by);
+      // console.log(utm_referral_mode);
+
+      // let utm = {};
+      // if (location.search) {
+      //   const urlParams = new URLSearchParams(location.search);
+      //   for (const [key, value] of urlParams) {
+      //     utm[key] = value;
+      //   }
+      // } else {
+      //   utm = "null"
+      // }
+      // console.log(utm);
       //var phonenumber = iti.getNumber();
       var phone = iti.getNumber(intlTelInputUtils.numberFormat.E164);
       if (!JSON.parse(consent)) {
@@ -2493,12 +2547,12 @@
         return false;
       }
       let dataBody = {
-        "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{ "name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phonenum, "consent": true, "country": country_name, "dial_code": "+" + dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1, "misc": { "14770": true, "14783": city } }] }, "utm": utm, "payment_id": "free_ticket"
+        "currency_id": 1, "event_id": "98aa6c47-7f73-444c-b145-ee46ed28fcb7", "order_amount": 0, "order_receipt": "", "registration_details": { "5316": [{ "name": name, "email_id": email, "designation": designation, "organisation": organisation, "phone_number": phonenum, "consent": true, "country": country_name, "dial_code": "+" + dial_code, "country_code": country_code, "email_verification_status": 1, "phone_number_verified": 1, "referred_by": utm_referred_by, "referral_mode": utm_referral_mode, "misc": { "14770": true, "14783": city } }] }, "utm": utms, "payment_id": "free_ticket"
       };
       //console.log(JSON.stringify(dataBody));
 
       if (location.search) {
-        dataBody['utm'] = utm
+        dataBody['utm'] = utms
       }
       if (phone.length <= 13) {
         var settings = {
