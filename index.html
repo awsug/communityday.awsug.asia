@@ -114,7 +114,7 @@
                     from industry leaders.
                   </p>
                   <div class="btn-register-section">
-                    <button class="btn btn-outline" data-toggle="modal" data-target="#register" onclick="validatemail()"> Register</button>
+                    <button class="btn btn-outline" data-toggle="modal" data-target="#register" onclick="hide_referral()"> Register</button>
                   </div>
                 </div>
               </div>
@@ -325,7 +325,7 @@
               <h4 class="heading-ttl">Online Conference</h4>
               <div class="bg_img"></div>
               <p>Gives you access to the online conference on 22 October, 2021</p>
-              <button type="button" data-toggle="modal" data-target="#register" onclick="validatemail()">Register</button>
+              <button type="button" data-toggle="modal" data-target="#register" onclick="hide_referral()">Register</button>
             </div>
           </div>
         </div>
@@ -2004,9 +2004,9 @@
               <span style="color: red" id="emailStatus"></span>
             </div>
             
-            <div id="validatemail-div">
+            <div id="validate_referral-div">
               <span style="color: green" id="otpsent"></span>
-              <input type="submit" class="btn btn-warning btn-register" id="validatemail-btn" value="Send Email OTP" onclick="sendotp()"><br>
+              <input type="submit" class="btn btn-warning btn-register" id="validate_referral-btn" value="Send Email OTP" onclick="sendotp()"><br>
               <span style="color: red" id="failedemail"></span><br>
             </div>
 
@@ -2210,16 +2210,21 @@
 
   
   <script>
-    function validatemail() { 
+    function hide_referral() {
+      document.getElementById('validate_referral-div').style.display = 'none';
+      document.getElementById('validateotp-div').style.display = 'none';
+    }
+
+    function validate_referral() { 
       const isReferral = window.location.href.includes("referred_by");
       document.getElementById('validateotp-div').style.display = 'none';
       //console.log("Referrel is = ",isReferral);
 
         if (isReferral == true) {
-            document.getElementById('validatemail-div').style.display = 'block';
+            document.getElementById('validate_referral-div').style.display = 'block';
           }
         else {
-            document.getElementById('validatemail-div').style.display = 'none';
+            document.getElementById('validate_referral-div').style.display = 'none';
           }
         
     }
@@ -2248,10 +2253,10 @@
               }
         });
       
-      document.getElementById('validatemail-btn').value = "Resend OTP";
-      document.getElementById('validatemail-btn').disabled = true;
+      document.getElementById('validate_referral-btn').value = "Resend OTP";
+      document.getElementById('validate_referral-btn').disabled = true;
       setTimeout(function(){
-            var element = document.getElementById('validatemail-btn').disabled = false;
+            var element = document.getElementById('validate_referral-btn').disabled = false;
             }, 30000);
       document.getElementById('validateotp-div').style.display = 'block';
     }    
@@ -2279,7 +2284,7 @@
         //console.log("OTP Status is: " + otpstatus);
         if (otpstatus == 200) {
             document.getElementById('otpsuccess').innerHTML = "OTP has been ssuccessfully verified";
-            document.getElementById('validatemail-div').style.display = 'none';
+            document.getElementById('validate_referral-div').style.display = 'none';
             document.getElementById('validateotp-btn').disabled = true;
             setTimeout(function(){
                 var element = document.getElementById('validateotp-div').style.display = 'none';
@@ -2563,6 +2568,7 @@
                 }
                 else {
                   window.validEmail = true;
+                  validate_referral();
                 }
               });
           }
