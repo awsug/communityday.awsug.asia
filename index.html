@@ -2568,6 +2568,7 @@
         document.getElementById("register-btn").disabled = true;
         $.ajax(settings).done(function (response) {
           document.getElementById("name").value = "";
+          document.getElementById('email').disabled = false;
           document.getElementById("email").value = "";
           document.getElementById("designation").value = "";
           document.getElementById("organisation").value = "";
