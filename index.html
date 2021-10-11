@@ -2082,9 +2082,9 @@
               <!-- <input type="text" name="phone" id="phone_number" maxlength="13" required> -->
               <span class="highlight"></span>
               <span class="bar"></span>
-              <span class="error text-danger">
+              <!-- <span class="error text-danger">
                 Please enter valid mobile number
-              </span>
+              </span> -->
               <span style="color: red" id="numStatus"></span>
               <!-- <label>
                   <i class="input-sifre-ikon fa fa-phone"></i>
@@ -2279,6 +2279,7 @@
           if (statusresp == 200) {
             document.getElementById('otpsent').innerHTML = "OTP has been sent to email address";
             document.getElementById('email').disabled = true;
+            document.getElementById('validateotp-div').style.display = 'block';
           } else if (statusresp == 400) {
               document.getElementById('failedemail').innerHTML = "Missing Mandatory Fields! Contact Support";
               }
@@ -2318,7 +2319,7 @@
       $.ajax(settings).done(function (jqXHR) {
         var otpstatusresponse = jqXHR;
         otpstatus = otpstatusresponse.status_code;
-        console.log("OTP Status is: " + otpstatus);
+        //console.log("OTP Status is: " + otpstatus);
         if (otpstatus == 200) {
             document.getElementById('otpfailed').innerHTML = "";
             document.getElementById('otpsuccess').innerHTML = "OTP has been ssuccessfully verified";
@@ -2487,6 +2488,7 @@
         return;
       }
       event.preventDefault();
+      //console.log(window.validNum);
       if (window.validNum !== true) {
         checkNumber(true);
         return;
@@ -2589,9 +2591,9 @@
       };
       //console.log(JSON.stringify(dataBody));
 
-      if (location.search) {
-        dataBody['utm'] = utms
-      }
+      // if (location.search) {
+      //   dataBody['utm'] = utms
+      // }
       if (phone.length <= 13) {
         var settings = {
           "url": "https://vhfmnv7a2h.execute-api.ap-south-1.amazonaws.com/prod/event/capture/v2",
