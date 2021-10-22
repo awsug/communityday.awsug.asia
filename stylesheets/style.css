@@ -634,7 +634,7 @@ ul.circle li {
 }
 /* line 302, ../sass/shared/_site.scss */
 .modal iframe {
-	height: 50vh;
+	height: 70vh;
 	width: 100%;
 }
 /* line 308, ../sass/shared/_site.scss */
@@ -688,6 +688,15 @@ ul.circle li {
 	font-size: 14px;
 	line-height: 1.5;
 }
+.workshops li {
+	list-style-type: disc;
+	font-size: 14px;
+	line-height: 30px;
+	margin-left: 15px;
+}
+.workshops li li {
+	list-style-type: circle;
+}
 @media only screen and (min-width: 992px) {
 	/* line 353, ../sass/shared/_site.scss */
 	.modal.fillo .modal-body .wid {
@@ -707,6 +716,11 @@ ul.circle li {
 	list-style-type: circle;
 	margin-left: 15px;
 	margin-top: 15px;
+}
+.workshops ul {
+	margin-left: 15px;
+	margin-bottom: 30px;
+	margin-top: 10px;
 }
 /* line 372, ../sass/shared/_site.scss */
 .modal#myModal {
@@ -2445,6 +2459,9 @@ ul.circle li {
 #page .section-6 .volunteers .vl-i .person[data-fname="Dhaval"] .img {
 	background-image: url(../images/vols/Dhaval.png);
 }
+#page .section-6 .volunteers .vl-i .person[data-fname="Dhruv"] .img {
+	background-image: url(../images/vols/Dhruv_Aggarwal.jpg);
+}
 /* line 1006, ../sass/shared/_home.scss */
 #page .section-6 .volunteers .vl-i .person[data-fname="Dijeesh"] .img {
 	background-image: url(../images/vols/Dijeesh.png);
@@ -2496,6 +2513,9 @@ ul.circle li {
 #page .section-6 .volunteers .vl-i .person[data-fname="Sridevi"] .img {
 	background-image: url(../images/vols/Sridevi.png);
 }
+#page .section-6 .volunteers .vl-i .person[data-fname="Srinivas"] .img {
+	background-image: url(../images/vols/Srinivas.jpeg);
+}
 /* line 1042, ../sass/shared/_home.scss */
 #page .section-6 .volunteers .vl-i .person[data-fname="Sukanya"] .img {
 	background-image: url(../images/vols/Sukanya.png);
@@ -2521,6 +2541,10 @@ ul.circle li {
 	background-image: url(../images/vols/Keshav.jpg);
 }
 
+#page .section-6 .volunteers .vl-i .person[data-fname="Lakshman"] .img {
+	background-image: url(../images/vols/Lakshman.jpeg);
+}
+
 #page .section-6 .volunteers .vl-i .person[data-fname="Bikas"] .img {
 	background-image: url(../images/vols/Bikas.jpg);
 }
@@ -2531,6 +2555,10 @@ ul.circle li {
 
 #page .section-6 .volunteers .vl-i .person[data-fname="Toshal"] .img {
 	background-image: url(../images/vols/Toshal.jpg);
+}
+
+#page .section-6 .volunteers .vl-i .person[data-fname="Vedant"] .img {
+	background-image: url(../images/vols/Vedant-Kakde.png);
 }
 
 #page .section-6 .volunteers .vl-i .person[data-fname="Abhishek"] .img {
@@ -2852,7 +2880,7 @@ ul.circle li {
 	}
 	/* line 1216, ../sass/shared/_home.scss */
 	#page .section-tickets .row > div {
-		width: calc(50% - 15px / 2);
+		width: calc(100% - 15px / 2);
 		margin-bottom: 15px;
 		padding: 0;
 	}
@@ -2914,6 +2942,9 @@ ul.circle li {
 }
 #page .section-tickets .card.with_icon.tick_work_4 .bg_img {
 	background-image: url(../images/Amazon_Alexa.png);
+}
+#page .section-tickets .card.with_icon.tick_cp .bg_img {
+	background-image: url(../images/cloud-practitioner.png);
 }
 /* line 1273, ../sass/shared/_home.scss */
 #page .section-tickets .card.with_icon.combo .bg_img {
